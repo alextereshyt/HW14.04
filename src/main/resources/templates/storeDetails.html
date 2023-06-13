@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Детали магазина</title>
+</head>
+<body>
+<h1>Детали магазина</h1>
+<p><strong>Название:</strong> <span th:text="${store.name}"></span></p>
+<p><strong>Адрес:</strong> <span th:text="${store.address}"></span></p>
+<p><strong>Телефон:</strong> <span th:text="${store.phone}"></span></p>
+<p><strong>Email:</strong> <span th:text="${store.email}"></span></p>
+<p><strong>Ссылка на сайт:</strong> <a th:href="${store.website}" th:text="${store.website}"></a></p>
+<p><strong>Категория:</strong> <span th:text="${store.category}"></span></p>
+<p><strong>Описание:</strong> <span th:text="${store.description}"></span></p>
+<a href="/stores">Вернуться к списку магазинов</a>
+</body>
+</html>

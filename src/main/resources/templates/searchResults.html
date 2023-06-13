@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Результаты поиска</title>
+</head>
+<body>
+<h1>Результаты поиска</h1>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+        <th>Email</th>
+        <th>Ссылка на сайт</th>
+    </tr>
+    <tr th:each="store : ${searchResults}">
+        <td th:text="${store.name}"></td>
+        <td th:text="${store.address}"></td>
+        <td th:text="${store.phone}"></td>
+        <td th:text="${store.email}"></td>
+        <td><a th:href="${store.website}" th:text="${store.website}"></a></td>
+    </tr>
+</table>
+<a href="/stores">Вернуться к списку магазинов</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Магазины</title>
+</head>
+<body>
+<h1>Список магазинов</h1>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+        <th>Email</th>
+        <th>Ссылка на сайт</th>
+    </tr>
+
+    <tr th:each="store, index : ${stores}">
+        <td><a th:href="@{/stores/__${index.index}__}"><span th:text="${store.name}"></span></a></td>
+        <td th:text="${store.address}"></td>
+        <td th:text="${store.phone}"></td>
+        <td th:text="${store.email}"></td>
+        <td><a th:href="${store.website}" th:text="${store.website}"></a></td>
+        <td><a th:href="@{/stores/__${index.index}__/edit}">Редактировать</a></td>
+        <td><a th:href="@{/stores/__${index.index}__/delete}">Удалить</a></td>
+    </tr>
+
+
+</table>
+<a href="/stores/add">Добавить магазин</a>
+<br><br>
+<form th:action="@{/stores/search}" method="get">
+    <input type="text" name="query" placeholder="Введите запрос" />
+    <input type="submit" value="Найти" />
+</form>
+</body>
+</html>
